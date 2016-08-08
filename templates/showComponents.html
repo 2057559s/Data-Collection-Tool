@@ -1,0 +1,10 @@
+<div class="show-components block">
+    <h1>Dataset</h1>
+    <h4>Number of Objects: {{ numberOfObjects }}</h4>
+    <div ng-if="!!components" ng-repeat="component in components">
+        <h4>{{ component.key }} :: {{ component.type }}</h4>
+    </div>
+    <div class="raw-data">
+
+    </div>
+</div>

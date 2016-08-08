@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+</head>
+
+<style>
+    textarea {
+        width: 400px;
+        height: 150px;
+    }
+
+    .block {
+        border: 1px solid black;
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    .block.show-operation {
+        -webkit-border-radius:15px;
+        -moz-border-radius:15px;
+        border-radius:15px;
+    }
+
+    .datasets {
+        background-color: lightgray;
+        width: 500px;
+    }
+
+    .container {
+        padding-top: 80px;
+    }
+
+    .operations {
+        background-color: lightgray;
+        width: 500px;
+    }
+
+    .preview{
+        border: 1px solid black;
+        background-color: lightblue;
+        width: 850px;
+    }
+
+
+
+</style>
+
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <ul class="nav navbar-nav navbar-left">
+        <li><a href="#">NDMS</a></li>
+    </ul>
+</nav>
+
+    <div class="container" ng-app="myApp" ng-controller="myCtrl">
+        <ds-import></ds-import>
+
+        <div class="block datasets-list">
+            <h1>Datasets</h1>
+            <div class="datasets" ng-repeat="dataset in datasets">
+                <show-components dataset="dataset"></show-components>
+                <show-operation ng-if="$index<datasets.length-1" operation="operations[$index]"></show-operation>
+                <preview-data></preview-data>
+            </div>
+
+        </div>
+
+        <add-operation></add-operation>
+
+    </div>
+
+
+</body>
+<script src="root.js"></script>
+</html>
