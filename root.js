@@ -150,6 +150,10 @@ app.directive('previewData', function(){
             $scope.hide = function(){
                 $scope.preview = "";
             }
+            
+            
         }
     }
 });
+
+
