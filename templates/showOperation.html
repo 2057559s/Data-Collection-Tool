@@ -1,6 +1,11 @@
 <div class="show-operation block">
     <h2>{{ operation.name }}</h2>
     <h4>Type of Operation: {{ operation.type }}</h4>
-    <select ng-model="operation.type"><option>map</option><option>filter</option></select>
+    <select ng-model="operation.type"><option selected="selected">map</option><option>filter</option></select>
     <h4>Operation details: {{ operation.f }}</h4>
+    <pre>{{ operation.code }}</pre>
+    <textarea ng-model="editor.code"></textarea>
+    <button type="button" class="btn btn-default" ng-click="runCode()">Submit edit</button>
+    <button type="button" class="btn btn-danger" ng-click="deleteOperation()">Delete</button>
+    <div>{{ operation.error }}</div>
 </div>

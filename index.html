@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+
+    <style>
+        textarea {
+            width: 400px;
+            height: 150px;
+        }
+
+        .block {
+            border: 1px solid black;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .block.show-operation {
+            -webkit-border-radius:15px;
+            -moz-border-radius:15px;
+            border-radius:15px;
+        }
+
+        .show-components {
+            background: lightgray;
+        }
+
+        .datasets {
+            width: 500px;
+        }
+
+        .container {
+            padding-top: 80px;
+        }
+
+        .modal-dialog {
+        }
+        .modal-body {
+            overflow: auto;
+        }
+
+    </style>
 </head>
-
-<style>
-    textarea {
-        width: 400px;
-        height: 150px;
-    }
-
-    .block {
-        border: 1px solid black;
-        padding: 30px;
-        margin-bottom: 30px;
-    }
-
-    .block.show-operation {
-        -webkit-border-radius:15px;
-        -moz-border-radius:15px;
-        border-radius:15px;
-    }
-
-    .datasets {
-        background-color: lightgray;
-        width: 500px;
-    }
-
-    .container {
-        padding-top: 80px;
-    }
-
-    .operations {
-        background-color: lightgray;
-        width: 500px;
-    }
-
-
-
-</style>
-
 
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -55,9 +56,8 @@
 
         <div class="block datasets-list">
             <h1>Datasets</h1>
-            <div class="datasets" ng-repeat="dataset in datasets">
-                <show-components dataset="dataset"></show-components>
-                <preview-data></preview-data>
+            <div class="block datasets" ng-repeat="dataset in datasets">
+                <show-dataset dataset="dataset"></show-dataset>
                 <show-operation ng-if="$index<datasets.length-1" operation="operations[$index]"></show-operation>
             </div>
 
@@ -70,6 +70,11 @@
 
 </body>
 <script src="root.js"></script>
+<script src="directives/dsImport.js"></script>
+<script src="directives/addOperation.js"></script>
+<script src="directives/previewData.js"></script>
+<script src="directives/showDataset.js"></script>
+<script src="directives/showOperation.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </html>

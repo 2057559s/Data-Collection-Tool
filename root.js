@@ -17,6 +17,11 @@ app.service('ndms', function() {
             return operations;
         },
 
+        deleteOperation: function(operation){
+            var i = operations.indexOf(operation);
+            operations.splice(i, 1);
+        },
+
         setInitialDataSet: function(dataset) {
             datasets.splice(0);
             datasets.push(dataset);
@@ -48,112 +53,12 @@ app.controller("myCtrl", function($scope, ndms){
     $scope.operations = ndms.getOperations();
 
     $scope.$watch('operations', function() {
-        ndms.rerunOperations();
+        try {
+            ndms.rerunOperations();
+        } catch (e) {
+            console.log("ERRRRRRRO");
+            console.log(e);
+        }
     }, true);
 
 });
-
-app.directive("dsImport", function() {
-    return {
-        restrict: "EA",
-        templateUrl: 'templates/dsImport.html',
-        controller: function($scope, ndms) {
-            $scope.add = function(){
-                var parsedInput = JSON.parse($scope.textIN);
-                ndms.setInitialDataSet(parsedInput);
-            };
-        }
-    };
-});
-
-app.directive("showComponents", function(){
-    return{
-        restrict: "EA",
-        scope: {
-            dataSet: '=dataset',
-        },
-        templateUrl: 'templates/showComponents.html',
-        controller: function($scope) {
-            $scope.$watch('dataSet', function(dataset) {
-                if (dataset===undefined) {
-                    return;
-                }
-
-                if (typeof $scope.dataSet[0] === "object") {
-                    $scope.components = [];
-                    for (key in $scope.dataSet[0]) {
-                        $scope.components.push({
-                            key: key,
-                            type: evaluateComponentType(key),
-                        });
-                    }
-                }
-
-                $scope.numberOfObjects = $scope.dataSet.length;
-
-                function evaluateComponentType(key) {
-                    return typeof $scope.dataSet[0][key];
-                }
-            });
-        }
-    }
-
-
-});
-
-app.directive('addOperation', function() {
-    return {
-        restrict: "EA",
-        scope: {},
-        templateUrl: 'templates/addOperation.html',
-
-        controller: function($scope, ndms) {
-            $scope.code = "";
-            $scope.add = function() {
-                var f;
-                try {
-                    f = eval("(function(d, i) {" + $scope.code + "})");
-                } catch (error) {
-                    $scope.error = error;
-                }
-                ndms.addDataOperation({
-                    name: $scope.nameIN,
-                    type: $scope.optionIN,
-                    f: f,
-                });
-            };
-
-        },
-    };
-});
-
-app.directive('showOperation', function() {
-    return{
-        restrict: "EA",
-        scope: {
-            operation: "=operation"
-        },
-        templateUrl: 'templates/showOperation.html'
-    }
-});
-
-app.directive('previewData', function(){
-    return{
-        restrict: "EA",
-        templateUrl: 'templates/previewData.html',
-        controller: function($scope){
-            $scope.previewData = function(i){
-                //The first 5 objects within the current dataset
-                $scope.preview = $scope.datasets[i].slice(0-5);
-
-            };
-            $scope.hide = function(){
-                $scope.preview = "";
-            }
-            
-            
-        }
-    }
-});
-
-
