@@ -31,9 +31,15 @@
                     function evaluateComponentType(key) {
                         return typeof $scope.dataset[0][key];
                     }
-                    
-                   // ndms.deleteDataset();
-                    
+
+
+                    // function getName(){
+                    //     $scope.name = ndms.getOperationName(dataset);
+                    //     return $scope.name;
+                    //
+                    // }
+
+
                     
                 });
             }
