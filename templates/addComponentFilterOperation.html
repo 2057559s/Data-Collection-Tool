@@ -1,0 +1,17 @@
+<div class="block component-filter-operation">
+    <select ng-model="form.component">
+        <option ng-repeat="component in components">{{ component }}</option>
+    </select>
+
+    <label>{{ TYPE }}</label>
+
+    <div ng-if="TYPE=='string'">
+        here we show a multiple selection box with all possible values of the component given by model.component
+    </div>
+
+    <div ng-if="TYPE=='number'">
+        <input type="number" ng-model="form.start" /> &lt;= {{ form.component }} &lt;= <input type="number" ng-model="form.end" />
+    </div>
+
+    <button ng-if="!!TYPE" ng-click="add()">Add operation</button>
+</div>
