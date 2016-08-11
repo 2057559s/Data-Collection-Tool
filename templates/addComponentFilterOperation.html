@@ -3,10 +3,12 @@
         <option ng-repeat="component in components">{{ component }}</option>
     </select>
 
+    <div ng-repeat="comp in components">{{ comp }}</div>
+
     <label>{{ TYPE }}</label>
 
     <div ng-if="TYPE=='string'">
-        here we show a multiple selection box with all possible values of the component given by model.component
+        <input type="text" ng-model="form.text">
     </div>
 
     <div ng-if="TYPE=='number'">

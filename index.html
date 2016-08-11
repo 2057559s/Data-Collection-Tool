@@ -64,7 +64,9 @@
         </div>
 
         <add-operation></add-operation>
-        <add-component-filter-operation></add-component-filter-operation>
+
+        <add-component-filter-operation ng-if="datasets.length>0" dataset="datasets[datasets.length-1]"></add-component-filter-operation>
+
         <ds-export></ds-export>
 
     </div>
