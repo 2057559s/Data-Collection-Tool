@@ -17,10 +17,6 @@ app.service('ndms', function() {
             return operations;
         },
 
-        getOperationName: function(operation){
-            return operation.name;
-        },
-
         deleteOperation: function(operation){
             var i = operations.indexOf(operation);
             operations.splice(i, 1);
@@ -55,6 +51,8 @@ app.controller("myCtrl", function($scope, ndms){
 
     $scope.datasets = ndms.getDataSets();
     $scope.operations = ndms.getOperations();
+
+
     
 
     $scope.$watch('operations', function() {
@@ -67,3 +65,7 @@ app.controller("myCtrl", function($scope, ndms){
     }, true);
 
 });
+
+app.config(['$compileProvider', function($compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|tel|data):/);
+}]);
