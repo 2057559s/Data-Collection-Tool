@@ -18,13 +18,18 @@
                 $scope.TYPE = "";
 
 
+                $scope.uniqueVals = [];
+
+                $scope.uniqueValues = function(d){
+                    return (uniqueVals.indexOf(d[comp]) != -1);
+                };
+
 
 
                 $scope.$watch('dataset', function(dataset) {
                     if (dataset===undefined) {
                         return;
                     }
-                    
                     
 
                     $scope.components.splice(0);
@@ -35,7 +40,15 @@
                 });
 
                 $scope.$watch('form.component', function(component) {
-                    $scope.TYPE = typeof $scope.dataset[0][component]
+                    $scope.TYPE = typeof $scope.dataset[0][component];
+
+                    var components =
+                        $scope.dataset.map(
+                            d => d[component]
+                        ).reduce((uniques, d) => {
+                            if (uniques.indexOf(d)==-1) uniques.push(d); return uniques;
+                        }, []);
+                    $scope.componentValues = components;
                 });
 
 
@@ -57,7 +70,7 @@
                     switch($scope.TYPE) {
                         case "string":
                             return function(d) {
-                                return form.text === d[form.component];
+                                return form.text.indexOf(d[form.component])!==-1;
                             };
                         case "number":
                             return function(d) {

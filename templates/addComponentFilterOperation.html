@@ -8,11 +8,16 @@
     <label>{{ TYPE }}</label>
 
     <div ng-if="TYPE=='string'">
-        <!-- for each object in the first dataset, select that objects component comp["app"]   -->
-        <option ng-repeat="comp in dataset">{{ comp[form.component] }}</option>
+        <select class="form-control" ng-model="form.text" multiple>
+            <option ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
+        </select>
 
-        <input type="text" ng-model="form.text">
+
+
     </div>
+
+
+
 
     <div ng-if="TYPE=='number'">
         <input type="number" ng-model="form.start" /> &lt;= {{ form.component }} &lt;= <input type="number" ng-model="form.end" />
