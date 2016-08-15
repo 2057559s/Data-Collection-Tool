@@ -3,11 +3,14 @@
         <option ng-repeat="component in components">{{ component }}</option>
     </select>
 
-    <div ng-repeat="comp in components">{{ comp }}</div>
+
 
     <label>{{ TYPE }}</label>
 
     <div ng-if="TYPE=='string'">
+        <!-- for each object in the first dataset, select that objects component comp["app"]   -->
+        <option ng-repeat="comp in dataset">{{ comp[form.component] }}</option>
+
         <input type="text" ng-model="form.text">
     </div>
 

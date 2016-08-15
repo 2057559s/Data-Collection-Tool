@@ -17,10 +17,15 @@
 
                 $scope.TYPE = "";
 
+
+
+
                 $scope.$watch('dataset', function(dataset) {
                     if (dataset===undefined) {
                         return;
                     }
+                    
+                    
 
                     $scope.components.splice(0);
                     for(comp in $scope.dataset[0]) {
@@ -32,6 +37,7 @@
                 $scope.$watch('form.component', function(component) {
                     $scope.TYPE = typeof $scope.dataset[0][component]
                 });
+
 
                 $scope.add = function() {
                     var form = JSON.parse(JSON.stringify($scope.form));
