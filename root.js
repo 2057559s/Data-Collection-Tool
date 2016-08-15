@@ -53,14 +53,14 @@ app.controller("myCtrl", function($scope, ndms){
     $scope.datasets = ndms.getDataSets();
     $scope.operations = ndms.getOperations();
 
-    $scope.isCodeOperation = function(i){
-        if(i.code){
+    $scope.isCodeOperation = function(operation){
+        if(operation.code){
             return true;
         }
     };
 
-    $scope.isFilterOperation = function(i){
-        if(!i.code){
+    $scope.isFilterOperation = function(operation){
+        if(!operation.code){
             return true;
         }
     };
