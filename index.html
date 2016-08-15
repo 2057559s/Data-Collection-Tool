@@ -58,12 +58,13 @@
             <h1>Datasets</h1>
             <div class="block datasets" ng-repeat="dataset in datasets">
                 <show-dataset dataset="dataset"></show-dataset>
-                <show-operation ng-if="$index<datasets.length-1" operation="operations[$index]"></show-operation>
+                <show-code-operation ng-if="$index<datasets.length-1 && isCodeOperation(operations[$index])" operation="operations[$index]"></show-code-operation>
+                <show-filter-operation ng-if="$index<datasets.length-1 && isFilterOperation(operations[$index])" operation="operations[$index]"></show-filter-operation>
             </div>
 
         </div>
 
-        <add-operation></add-operation>
+        <add-code-operation></add-code-operation>
 
         <add-component-filter-operation ng-if="datasets.length>0" dataset="datasets[datasets.length-1]"></add-component-filter-operation>
 
@@ -75,11 +76,12 @@
 </body>
 <script src="root.js"></script>
 <script src="directives/dsImport.js"></script>
-<script src="directives/addOperation.js"></script>
+<script src="directives/addCodeOperation.js"></script>
 <script src="directives/addComponentFilterOperation.js"></script>
 <script src="directives/previewData.js"></script>
 <script src="directives/showDataset.js"></script>
-<script src="directives/showOperation.js"></script>
+<script src="directives/showCodeOperation.js"></script>
+<script src="directives/showFilterOperation.js"></script>
 <script src="directives/dsExport.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

@@ -9,6 +9,7 @@ app.service('ndms', function() {
     var operations = [];
 
     return {
+        
         getDataSets: function() {
             return datasets;
         },
@@ -51,6 +52,18 @@ app.controller("myCtrl", function($scope, ndms){
 
     $scope.datasets = ndms.getDataSets();
     $scope.operations = ndms.getOperations();
+
+    $scope.isCodeOperation = function(i){
+        if(i.code){
+            return true;
+        }
+    };
+
+    $scope.isFilterOperation = function(i){
+        if(!i.code){
+            return true;
+        }
+    };
 
 
     

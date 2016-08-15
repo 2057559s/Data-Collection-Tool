@@ -16,13 +16,13 @@
 
         <show-operation operation="myOperation"></show-operation>
      */
-    app.directive('showOperation', function() {
+    app.directive('showCodeOperation', function() {
         return{
             restrict: "EA",
             scope: {
                 operation: "=operation"
             },
-            templateUrl: 'templates/showOperation.html',
+            templateUrl: 'templates/showCodeOperation.html',
             controller: function($scope, ndms) {
                 $scope.editor = {
                     code : $scope.operation.code
@@ -56,6 +56,7 @@
                     }
                     return f;
                 }
+                
             }
         }
     });

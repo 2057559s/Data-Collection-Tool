@@ -3,11 +3,11 @@
  */
 (function(){
     var app = angular.module("myApp");
-    app.directive('addOperation', function() {
+    app.directive('addCodeOperation', function() {
         return {
             restrict: "EA",
             scope: {},
-            templateUrl: 'templates/addOperation.html',
+            templateUrl: 'templates/addCodeOperation.html',
             
             
 
