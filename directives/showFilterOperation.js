@@ -13,6 +13,14 @@
                 operation: "=operation"
             },
             templateUrl: 'templates/showFilterOperation.html',
+            controller: function($scope, ndms) {
+                $scope.deleteOperation = function() {
+                    console.log('delete operation');
+                    ndms.deleteOperation($scope.operation);
+                };
+
+                
+            }
         }
     });
 })();
