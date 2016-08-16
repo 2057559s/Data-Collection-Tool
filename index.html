@@ -12,9 +12,12 @@
         }
 
         .block {
-            border: 1px solid black;
+            border: 1px solid darkgrey;
             padding: 30px;
             margin-bottom: 30px;
+            -webkit-border-radius:15px;
+            -moz-border-radius:15px;
+            border-radius:15px;
         }
 
         .block.show-operation {
@@ -50,12 +53,17 @@
     <div class="container" ng-app="myApp" ng-controller="myCtrl">
         <ds-import></ds-import>
 
-        <div class="block datasets-list">
-            <h1>Datasets</h1>
-            <div class="block datasets" ng-repeat="dataset in datasets">
-                <show-dataset dataset="dataset"></show-dataset>
-                <show-operation ng-if="$index<datasets.length-1" operation="operations[$index]" dataset="dataset"></show-operation>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Datasets & Operations</h3>
             </div>
+            <div class="panel-body">
+                <div class="block datasets" ng-repeat="dataset in datasets">
+                    <show-dataset dataset="dataset"></show-dataset>
+                    <show-operation ng-if="$index<datasets.length-1" operation="operations[$index]" dataset="dataset"></show-operation>
+                </div>
+            </div>
+
 
         </div>
 
