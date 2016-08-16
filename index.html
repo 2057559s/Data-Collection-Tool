@@ -58,11 +58,15 @@
             <h1>Datasets</h1>
             <div class="block datasets" ng-repeat="dataset in datasets">
                 <show-dataset dataset="dataset"></show-dataset>
-                <show-code-operation ng-if="$index<datasets.length-1 && isCodeOperation(operations[$index])" operation="operations[$index]"></show-code-operation>
-                <show-filter-operation ng-if="$index<datasets.length-1 && isFilterOperation(operations[$index])" operation="operations[$index]" dataset="datasets[$index]"></show-filter-operation>
+
+                <div ng-if="$index<datasets.length-1">
+                    <show-code-operation ng-if="isCodeOperation(operations[$index])" operation="operations[$index]"></show-code-operation>
+                    <show-filter-operation ng-if="isFilterOperation(operations[$index])" operation="operations[$index]" dataset="datasets[$index]"></show-filter-operation>
+                </div>
             </div>
 
         </div>
+
 
         <add-code-operation></add-code-operation>
 

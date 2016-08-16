@@ -18,9 +18,13 @@
                     var f = compileCode($scope.code);
                     if (f !== undefined) {
                         ndms.addDataOperation({
+                            operationType: "generic-code",
                             name: $scope.nameIN,
                             type: $scope.optionIN,
-                            f: f,
+//                            f: f,
+                            createF: function() {
+                                return compileCode(this.code);
+                            },
                             code: $scope.code,
                         });
                     }

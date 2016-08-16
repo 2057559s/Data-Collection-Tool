@@ -16,7 +16,7 @@
                 $scope.components = [];
 
                 $scope.TYPE = "";
-                
+
                 $scope.$watch('dataset', function(dataset) {
                     if (dataset===undefined) {
                         return;
@@ -45,20 +45,31 @@
 
                 $scope.add = function() {
                     var form = JSON.parse(JSON.stringify($scope.form));
-                    var f = createFunction(form);
+                    var f = createFunction($scope.TYPE, form);
                     if (f !== undefined) {
                         ndms.addDataOperation({
+                            operationType: "component-filter",
                             name: $scope.nameIN,
                             type: "filter",
-                            f: f,
+//                            f: f,
+                            createF: function() {
+                                return createFunction(
+                                    this.filter.componentType,
+                                    this.filter.form
+                                );
+                            },
 
                             // add what ever stff you need to be able to show this operation in order to modify it
+                            filter: {
+                                componentType: $scope.TYPE,
+                                form: JSON.parse(JSON.stringify($scope.form)),
+                            },
                         });
                     }
                 };
 
-                function createFunction(form) {
-                    switch($scope.TYPE) {
+                function createFunction(type, form) {
+                    switch(type) {
                         case "string":
                             return function(d) {
                                 return form.text.indexOf(d[form.component])!==-1;

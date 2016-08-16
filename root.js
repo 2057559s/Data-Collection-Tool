@@ -31,15 +31,18 @@ app.service('ndms', function() {
         addDataOperation: function(operation) {
             operations.push(operation);
             var dataset = datasets[datasets.length-1];
-            var newDataset = dataset[operation.type](operation.f);
+//            var newDataset = dataset[operation.type](operation.f);
+            var newDataset = dataset[operation.type](operation.createF());
             //console.log("new dataset: " + newDataset);
             datasets.push(newDataset);
         },
         rerunOperations: function() {
+            console.log('rerunning operations');
             datasets.splice(1);
             operations.forEach(function(operation) {
                 var dataset = datasets[datasets.length-1];
-                var newDataset = dataset[operation.type](operation.f);
+//                var newDataset = dataset[operation.type](operation.f);
+                var newDataset = dataset[operation.type](operation.createF());
                 datasets.push(newDataset);
             });
         },
@@ -54,19 +57,12 @@ app.controller("myCtrl", function($scope, ndms){
     $scope.operations = ndms.getOperations();
 
     $scope.isCodeOperation = function(operation){
-        if(operation.code){
-            return true;
-        }
+        return operation.operationType==="generic-code";
     };
 
     $scope.isFilterOperation = function(operation){
-        if(!operation.code){
-            return true;
-        }
+        return operation.operationType==="component-filter";
     };
-
-
-    
 
     $scope.$watch('operations', function() {
         try {

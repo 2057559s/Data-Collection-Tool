@@ -33,7 +33,6 @@
                     ndms.deleteOperation($scope.operation);
                 };
 
-
                 $scope.runCode = runCode;
 
                 function runCode() {
@@ -41,7 +40,6 @@
                     if (f) {
                         $scope.operation.code = $scope.editor.code;
                         $scope.operation.f = f;
-
                     }
                 }
 

@@ -4,17 +4,12 @@
         <option ng-repeat="component in components">{{ component }}</option>
     </select>
 
-
-
     <label>{{ TYPE }}</label>
 
     <div ng-if="TYPE=='string'">
         <select class="form-control" ng-model="form.text" multiple>
             <option ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
         </select>
-
-
-
     </div>
 
 
