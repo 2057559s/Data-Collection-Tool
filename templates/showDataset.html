@@ -1,20 +1,31 @@
 <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Dataset</h3>
-        </div>
-        <div class="panel-body">
-            <h4>Number of Objects: {{ numberOfObjects }}</h4>
-            <h4>Types of data:</h4>
-            <div ng-if="!!components" ng-repeat="component in components">
-                <h5>{{ component.type }}</h5>
-            </div>
-            <h4>Component keys:</h4>
-            <div ng-if="!!components" ng-repeat="component in components">
-                <h5>{{ component.key }}</h5>
-            </div>
+    <div class="panel-heading">
+        <!--        <h3 class="panel-title">Dataset</h3> -->
+        <h3 class="panel-title">{{ dataType }}[{{ numberOfObjects }}] <preview-data></preview-data></h3>
+    </div>
+    <div class="panel-body">
+        <!--        <h4>Number of Objects: {{ numberOfObjects }}</h4>
+                <h4>Types of data:</h4>
+                <div ng-if="!!components" ng-repeat="component in components">
+                    <h5>{{ component.type }}</h5>
+                </div>
+                <h4>Component keys:</h4>
+                <div ng-if="!!components" ng-repeat="component in components">
+                    <h5>{{ component.key }}</h5>
+                </div>-->
 
-            <preview-data></preview-data>
-        </div>
+        <table class="table">
+            <tr>
+                <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
+            </tr>
+            <tr ng-repeat="item in dataset.slice(0,1) track by $index">
+                <td ng-repeat="component in components">{{ item[component.key] }}</td>
+            </tr>
+        </table>
+
+
+    </div>
+
 </div>
 
 

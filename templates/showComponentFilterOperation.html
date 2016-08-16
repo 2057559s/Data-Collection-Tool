@@ -1,23 +1,28 @@
-<div class="show-operation block">
-    <h1>Filter operation</h1>
-    <select ng-model="operation.filter.form.component">
-        <option ng-repeat="component in components" ng-attr>{{ component }}</option>
-    </select>
-
-
-    <label>{{ operation.filter.componentType }}</label>
-
-    <div ng-if="operation.filter.componentType==='string'">
-        <select class="form-control" ng-model="operation.filter.form.text" multiple>
-            <option ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button type="button" class="btn btn-danger pull-right" ng-click="deleteOperation()">&times;</button>
+        <h3 class="panel-title">Filter Operation</h3>
+    </div>
+    <div class="panel-body">
+        <select ng-model="operation.filter.form.component">
+            <option ng-repeat="component in components" ng-attr>{{ component }}</option>
         </select>
-    </div>
 
-    <div ng-if="operation.filter.componentType==='number'">
-        <input type="number" ng-model="operation.filter.form.start" /> &lt;= {{ form.component }} &lt;= <input type="number" ng-model="operation.filter.form.end" />
-    </div>
 
-    <button type="button" class="btn btn-danger" ng-click="deleteOperation()">Delete</button>
+        <label>{{ operation.filter.componentType }}</label>
+
+        <div ng-if="operation.filter.componentType==='string'">
+            <select class="form-control" ng-model="operation.filter.form.text" multiple>
+                <option ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
+            </select>
+        </div>
+
+        <div ng-if="operation.filter.componentType==='number'">
+            <input type="number" ng-model="operation.filter.form.start" /> &lt;= {{ form.component }} &lt;= <input type="number" ng-model="operation.filter.form.end" />
+        </div>
+
+        <button type="button" class="btn btn-danger" ng-click="deleteOperation()">Delete</button>
+    </div>
 
 </div>
 

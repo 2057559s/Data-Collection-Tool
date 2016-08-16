@@ -16,6 +16,8 @@
                         return;
                     }
 
+                    $scope.dataType = typeof $scope.dataset[0];
+
                     if (typeof $scope.dataset[0] === "object") {
                         $scope.components = [];
                         for (key in $scope.dataset[0]) {
