@@ -22,34 +22,15 @@
                             $scope.components.push({
                                 key: key,
                                 type: evaluateComponentType(key),
-
                             });
-
-                            
-
-                           
                         }
                     }
 
-                    
                     $scope.numberOfObjects = $scope.dataset.length;
 
                     function evaluateComponentType(key) {
                         return typeof $scope.dataset[0][key];
                     }
-
-
-
-
-
-                    // function getName(){
-                    //     $scope.name = ndms.getOperationName(dataset);
-                    //     return $scope.name;
-                    //
-                    // }
-
-
-                    
                 });
             }
         }

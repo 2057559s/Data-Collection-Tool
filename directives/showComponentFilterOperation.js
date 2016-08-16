@@ -6,14 +6,14 @@
  */
 (function(){
     var app = angular.module("myApp");
-    app.directive('showFilterOperation', function() {
+    app.directive('showComponentFilterOperation', function() {
         return {
             restrict: "EA",
             scope: {
                 operation: "=operation",
                 dataset: "=dataset"
             },
-            templateUrl: 'templates/showFilterOperation.html',
+            templateUrl: 'templates/showComponentFilterOperation.html',
             controller: function($scope, ndms) {
 
                 $scope.deleteOperation = function() {

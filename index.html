@@ -28,7 +28,6 @@
         }
 
         .datasets {
-            width: 500px;
         }
 
         .container {
@@ -58,11 +57,7 @@
             <h1>Datasets</h1>
             <div class="block datasets" ng-repeat="dataset in datasets">
                 <show-dataset dataset="dataset"></show-dataset>
-
-                <div ng-if="$index<datasets.length-1">
-                    <show-code-operation ng-if="isCodeOperation(operations[$index])" operation="operations[$index]"></show-code-operation>
-                    <show-filter-operation ng-if="isFilterOperation(operations[$index])" operation="operations[$index]" dataset="datasets[$index]"></show-filter-operation>
-                </div>
+                <show-operation ng-if="$index<datasets.length-1" operation="operations[$index]" dataset="dataset"></show-operation>
             </div>
 
         </div>
@@ -84,8 +79,9 @@
 <script src="directives/addComponentFilterOperation.js"></script>
 <script src="directives/previewData.js"></script>
 <script src="directives/showDataset.js"></script>
+<script src="directives/showOperation.js"></script>
 <script src="directives/showCodeOperation.js"></script>
-<script src="directives/showFilterOperation.js"></script>
+<script src="directives/showComponentFilterOperation.js"></script>
 <script src="directives/dsExport.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
