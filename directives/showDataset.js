@@ -31,6 +31,8 @@
                     function evaluateComponentType(key) {
                         return typeof $scope.dataset[0][key];
                     }
+                    
+                    
                 });
             }
         }
