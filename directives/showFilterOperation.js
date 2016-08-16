@@ -10,16 +10,44 @@
         return {
             restrict: "EA",
             scope: {
-                operation: "=operation"
+                operation: "=operation",
+                dataset: "=dataset"
             },
             templateUrl: 'templates/showFilterOperation.html',
             controller: function($scope, ndms) {
+
+
+
                 $scope.deleteOperation = function() {
                     console.log('delete operation');
                     ndms.deleteOperation($scope.operation);
                 };
 
-                
+                $scope.form = {component:""};
+                $scope.components = [];
+
+                //$scope.TYPE = "";
+
+                $scope.$watch('dataset', function(dataset) {
+                    if (dataset===undefined) {
+                        return;
+                    }
+
+
+                    $scope.components.splice(0);
+                    for(comp in $scope.dataset[0]) {
+                        $scope.components.push(comp);
+                    }
+                });
+
+               
+
+
+
+
+
+
+
             }
         }
     });

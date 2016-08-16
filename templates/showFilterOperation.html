@@ -1,6 +1,10 @@
 <div class="show-operation block">
     <h1>Filter operation</h1>
-    <h2>{{ operation.name }}</h2>
+    <select ng-model="form.component">
+        <option ng-repeat="component in components">{{ component }}</option>
+    </select>
+
+
     <button type="button" class="btn btn-danger" ng-click="deleteOperation()">Delete</button>
 
 </div>

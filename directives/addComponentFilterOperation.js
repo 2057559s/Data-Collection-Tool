@@ -16,16 +16,7 @@
                 $scope.components = [];
 
                 $scope.TYPE = "";
-
-
-                $scope.uniqueVals = [];
-
-                $scope.uniqueValues = function(d){
-                    return (uniqueVals.indexOf(d[comp]) != -1);
-                };
-
-
-
+                
                 $scope.$watch('dataset', function(dataset) {
                     if (dataset===undefined) {
                         return;
