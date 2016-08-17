@@ -11,6 +11,9 @@
             height: 150px;
         }
 
+        .panel-heading {
+            overflow: hidden;
+        }
 
 
 
@@ -59,6 +62,7 @@
             <div class="btn btn-primary" ng-click="view.opShow=1">Add Code operation</div>
             <div class="btn btn-primary" ng-click="view.opShow=2">Add Component filter operation</div>
         </div>
+
 
         <add-code-operation ng-if="datasets.length>0"></add-code-operation>
         <add-component-filter-operation ng-if="datasets.length>0" dataset="datasets[datasets.length-1]"></add-component-filter-operation>
