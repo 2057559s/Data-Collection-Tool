@@ -1,16 +1,24 @@
 <div class="panel panel-default newthing">
     <div class="panel-heading">
         <button type="button" class="btn btn-danger pull-right" ng-click="deleteOperation()">&times;</button>
-        <h4 class="panel-title">Code Operation</h4>
+        <button type="button" class="btn btn-default pull-right" ng-click="view.min=2">&plus;</button>
+        <button type="button" class="btn btn-default pull-right" ng-click="view.min=1">&minus;</button>
+        <h4 class="panel-title">
+            <button class="btn btn-default">Code Operation: {{ operation.name }}</button>
+            <button class="btn btn-default">Type: {{ operation.type }}</button>
+            <button class="btn btn-default">
+                Change: <select ng-model="operation.type"><option selected="selected">map</option><option>filter</option></select>
+            </button>
+        </h4>
     </div>
-    <div class="panel-body">
-        <h2>{{ operation.name }}</h2>
-        <h4>Type of Operation: {{ operation.type }}</h4>
-        <select ng-model="operation.type"><option selected="selected">map</option><option>filter</option></select>
-        <h4>Operation details: {{ operation.f }}</h4>
-        <pre>{{ operation.code }}<button class="btn btn-default pull-right">Edit</button></pre>
-        <textarea ng-model="editor.code"></textarea>
-        <button type="button" class="btn btn-default" ng-click="runCode()">Submit</button>
+    <div ng-if="view.min!==1" class="panel-body">
+        <h4>{{ operation.f }}</h4>
+        <pre>{{ operation.code }}<button class="btn btn-default pull-right" ng-click="view.edit=1">Edit</button></pre>
+        <div ng-if="view.edit===1">
+            <textarea ng-model="editor.code"></textarea>
+            <button type="button" class="btn btn-default" ng-click="runCode()">Submit</button>
+        </div>
+
         <div>{{ operation.error }}</div>
     </div>
 </div>
