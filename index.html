@@ -63,10 +63,15 @@
             <div class="btn btn-primary" ng-click="view.opShow=2">Add Component filter operation</div>
         </div>
 
-
-        <add-code-operation ng-if="datasets.length>0"></add-code-operation>
-        <add-component-filter-operation ng-if="datasets.length>0" dataset="datasets[datasets.length-1]"></add-component-filter-operation>
-
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Operations</h3>
+            </div>
+            <div class="panel-body">
+                <add-code-operation ng-if="datasets.length>0"></add-code-operation>
+                <add-component-filter-operation ng-if="datasets.length>0" dataset="datasets[datasets.length-1]"></add-component-filter-operation>
+            </div>
+        </div>
         <ds-export></ds-export>
 
     </div>
