@@ -1,9 +1,16 @@
 <div class="panel panel-default">
-    <div class="panel-heading panel-heading-custom">
-        <h3 class="panel-title">Import Data</h3>
+    <div class="panel-heading" data-toggle="collapse" data-target="#collapseImport">
+        <h4 class="panel-title">
+            Import Data
+        </h4>
     </div>
-    <div class="panel-body">
-        <textarea ng-model="textIN"></textarea>
-        <button type="button" class="btn btn-default"  ng-click="add()">Submit</button>
+    <div id="collapseImport" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <textarea class="form-control" style="height: 130px;" ng-model="textIN"></textarea>
+            <button type="button" class="btn btn-default"  ng-click="add()">Submit</button>
+        </div>
     </div>
 </div>
+
+
+

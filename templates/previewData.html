@@ -7,7 +7,15 @@
                     <h3 class="model-title">Preview</h3>
                 </div>
                 <div class="modal-body">
-                 {{ preview }}
+                    <table class="table">
+                        <tr>
+                            <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
+                        </tr>
+                        <tr ng-repeat="item in dataset.slice(0, 5) track by $index">
+                            <td ng-repeat="component in components">{{ item[component.key] }}</td>
+                            <td ng-if="dataType==='string'">{{ item }}</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

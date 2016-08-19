@@ -10,7 +10,7 @@
                 dataset: '=dataset',
             },
             templateUrl: 'templates/showDataset.html',
-            controller: function($scope, ndms) {
+            controller: function($scope, $element, ndms) {
                 $scope.$watch('dataset', function(dataset) {
                     if (dataset===undefined) {
                         return;
@@ -33,9 +33,13 @@
                     function evaluateComponentType(key) {
                         return typeof $scope.dataset[0][key];
                     }
-                    
-                    
+
+                    $scope.numberToSHow = 5;
+                    function expand(){
+                        $scope.numberToSHow += 5;
+                    }
                 });
+
             }
         }
 

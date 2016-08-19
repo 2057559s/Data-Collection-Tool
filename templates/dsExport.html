@@ -1,10 +1,12 @@
 <div class="panel panel-default">
-    <div class="panel-heading panel-heading-custom">
+    <div class="panel-heading" data-toggle="collapse" data-target="#collapseExport">
         <h3 class="panel-title">Export Data</h3>
     </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-default" ng-click="exportDataset()">Export</button>
-        <a ng-if="success" class="btn btn-default" href="{{ dataHref }}" download="data.json">Download file</a>
+    <div id="collapseExport" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <button type="button" class="btn btn-default" ng-click="exportDataset()">Export</button>
+            <a ng-if="success" class="btn btn-default" href="{{ dataHref }}" download="data.json">Download file</a>
+        </div>
     </div>
 </div>
 

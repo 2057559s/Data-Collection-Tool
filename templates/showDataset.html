@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" data-toggle="collapse">
         <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=2">&plus;</button>
         <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=1">&minus;</button>
         <h3 class="panel-title">
@@ -12,11 +12,13 @@
             <tr>
                 <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
             </tr>
-            <tr ng-repeat="item in dataset.slice(0,1) track by $index">
+            <tr ng-repeat="item in dataset.slice(0, 5) track by $index">
                 <td ng-repeat="component in components">{{ item[component.key] }}</td>
+                <td ng-if="dataType==='string'">{{ item }}</td>
             </tr>
         </table>
 
+        <button class="btn btn-default" ng-click="expand()">+5</button>
         <preview-data></preview-data>
 
 

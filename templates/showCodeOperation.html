@@ -11,7 +11,7 @@
     </div>
     <div ng-if="view.min === 2" class="panel-body">
         <h4>{{ operation.f }}</h4>
-        <pre>{{ operation.code }}<button class="btn btn-default pull-right" ng-click="view.edit=1">Edit</button></pre>
+        <div >{{ operation.code }}<button class="btn btn-default pull-right" ng-click="view.edit=1">Edit</button></div>
         <div ng-if="view.edit===1">
             <textarea ng-model="editor.code"></textarea>
             <button type="button" class="btn btn-default" ng-click="runCode()">Submit</button>

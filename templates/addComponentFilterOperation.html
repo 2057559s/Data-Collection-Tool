@@ -1,29 +1,18 @@
-<!---<button type="button" class="btn btn-primary" ng-click="view.sho=2">Add Component filter operation</button>-->
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Add Filter Operation</h3>
-    </div>
-    <div class="panel-body">
+<div class="container" style="heigth: 200px;">
+    Select Component:
+    <select ng-model="form.component">
+        <option ng-repeat="component in components">{{ component }}</option>
+    </select>
 
-        <select ng-model="form.component">
-            <option ng-repeat="component in components">{{ component }}</option>
+    <label>{{ TYPE }}</label>
+
+    <div ng-if="TYPE=='string'">
+        <select class="form-control" ng-init="comp"ng-model="form.text" multiple>
+            <option selected ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
         </select>
-
-        <label>{{ TYPE }}</label>
-
-        <div ng-if="TYPE=='string'">
-            <select class="form-control" ng-init="comp"ng-model="form.text" multiple>
-                <option selected ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
-            </select>
-        </div>
-
-
-
-
-        <div ng-if="TYPE=='number'">
-            <input type="number" ng-model="form.start" /> &lt;= {{ form.component }} &lt;= <input type="number" ng-model="form.end" />
-        </div>
-
-        <button class="btn btn-default" ng-if="!!TYPE" ng-click="add()">Add operation</button>
     </div>
+    <div ng-if="TYPE=='number'">
+        <input type="number" ng-model="form.start" /> &lt;= {{ form.component }} &lt;= <input type="number" ng-model="form.end" />
+    </div>
+    <button class="btn btn-default btn-sm" ng-if="!!TYPE" ng-click="add()">Add operation</button>
 </div>

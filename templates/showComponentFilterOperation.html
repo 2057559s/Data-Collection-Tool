@@ -17,7 +17,9 @@
             </select>
         </div>
         <div ng-if="operation.filter.componentType==='number'">
-            <input type="number" ng-model="operation.filter.form.start" /> &lt;= {{ form.component }} &lt;= <input type="number" ng-model="operation.filter.form.end" />
+            <input type="number" ng-model="operation.filter.form.start" />
+            &lt;= {{ form.component }} &lt;=
+            <input type="number" ng-model="operation.filter.form.end" />
         </div>
     </div>
 

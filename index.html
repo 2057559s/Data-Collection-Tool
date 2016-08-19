@@ -6,9 +6,8 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 
     <style>
-        textarea {
-            width: 400px;
-            height: 150px;
+        textarea .form-control{
+            height: 200px;
         }
 
         .panel-heading {
@@ -23,6 +22,18 @@
 
         .container {
             padding-top: 80px;
+        }
+
+
+
+        .tab-content {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .nav-tabs {
+            margin-bottom: 0;
         }
 
         .modal-dialog {
@@ -58,23 +69,29 @@
 
         </div>
 
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-target="#showCode" data-toggle="tab">Add Code Operation</a></li>
+            <li><a data-target="#showComp" data-toggle="tab">Filter on Object Operation</a></li>
+        </ul>
 
-
-        <div class="panel panel-default">
-            <div class="panel-heading panel-heading-custom">
-                <h3 class="panel-title">Add Operations</h3>
-            </div>
-            <div class="panel-body">
-                <add-code-operation ng-if="datasets.length>0"></add-code-operation>
-                <add-component-filter-operation ng-if="datasets.length>0" dataset="datasets[datasets.length-1]"></add-component-filter-operation>
-            </div>
+        <div class="tab-content">
+            <add-code-operation class="tab-pane active" id="showCode" ng-if="datasets.length>0">Add Code Operation</add-code-operation></li>
+            <add-component-filter-operation class="tab-pane" id="showComp" ng-if="datasets.length>0" dataset="datasets[datasets.length-1]">Add Component Filter Operation</add-component-filter-operation>
         </div>
+
         <ds-export></ds-export>
 
     </div>
 
 
 </body>
+<script>
+    jQuery(function () {
+        jQuery('#myTab a:last').tab('show')
+    })
+
+
+</script>
 <script src="root.js"></script>
 <script src="directives/dsImport.js"></script>
 <script src="directives/addCodeOperation.js"></script>

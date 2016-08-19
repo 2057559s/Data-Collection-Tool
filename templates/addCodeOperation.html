@@ -1,16 +1,9 @@
-<!--<button type="button" class="btn btn-primary" ng-click="view.sho=1">Add Code operation</button>-->
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Add Code Operation</h3>
-    </div>
-    <div class="panel-body">
-        <input placeholder="Name of operation" ng-model="nameIN">
-        <select ng-model="optionIN">
-            <option>map</option>
-            <option>filter</option>
-        </select><br>
-        <textarea style="height: 120px; width: 250px;" ng-model="code">asdf</textarea>
-        <button type="button" class="btn btn-default" ng-click="add()">Add</button>
-        <div>{{ error }}</div>
-    </div>
-</div>
+<textarea class="form-control" style="height: 130px;"ng-model="code">asdf</textarea>
+<input class="for-control" type="text" placeholder="Name of operation" ng-model="nameIN">
+<select ng-model="optionIN">
+    <option>map</option>
+    <option>filter</option>
+</select>
+<button type="button" class="btn btn-default btn-sm" ng-click="add()">Add</button>
+<br>
+<div>{{ error }}</div>
