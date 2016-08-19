@@ -3,7 +3,7 @@
         <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=2">&plus;</button>
         <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=1">&minus;</button>
         <h3 class="panel-title">
-            {{ dataType }}[{{ numberOfObjects }}] <span ng-repeat="component in components">({{component.key}} : {{component.type}}) </span>
+            {{ dataType }}[{{ numberOfObjects }}] <span ng-if="view.min!==2" ng-repeat="component in components">({{component.key}} : {{component.type}}) </span>
         </h3>
     </div>
     <div ng-if="view.min === 2" class="panel-body">
