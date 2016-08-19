@@ -11,7 +11,7 @@
             controller: function($element, $scope) {
                 $scope.previewData = function(i) {
                     //The first 5 objects within the current data set
-                    $scope.preview = $scope.dataset.slice(0,5); //$scope.datasets[i].slice(0-5);
+                    $scope.preview = $scope.dataset.slice(0,20); //$scope.datasets[i].slice(0-5);
 
                     console.log($scope.preview[0])
 

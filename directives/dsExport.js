@@ -13,8 +13,8 @@
                 $scope.exportDataset = function(){
                     console.log("exporting");
                     $scope.exportContents = JSON.stringify($scope.datasets[$scope.datasets.length-1]);
-
                     $scope.dataHref = "data:text/plain," + JSON.stringify($scope.datasets[$scope.datasets.length-1]);
+                    $scope.success = true;
                 }
             }
         };

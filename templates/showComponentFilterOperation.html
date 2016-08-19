@@ -1,8 +1,8 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <button type="button" class="btn btn-danger btn-sm pull-right" ng-click="deleteOperation()">&times;</button>
         <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=2">&plus;</button>
         <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=1">&minus;</button>
+        <button type="button" class="btn btn-danger btn-sm pull-right" ng-click="deleteOperation()">&times;</button>
         <h3 class="panel-title">Filter Operation
             <select ng-model="operation.filter.form.component">
                 <option ng-repeat="component in components" ng-attr>{{ component }}</option>

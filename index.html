@@ -14,10 +14,10 @@
         .panel-heading {
             overflow: hidden;
         }
-
-
-
-
+        .panel-heading-custom{
+            border: lightblue;
+            border-width: thick;
+        }
         .datasets {
         }
 
@@ -45,7 +45,7 @@
         <ds-import></ds-import>
 
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading panel-heading-custom">
                 <h3 class="panel-title">Datasets & Operations</h3>
             </div>
             <div class="panel-body">
@@ -58,13 +58,10 @@
 
         </div>
 
-        <div class="buttons" ng-if="datasets.length>0">
-            <div class="btn btn-primary" ng-click="view.opShow=1">Add Code operation</div>
-            <div class="btn btn-primary" ng-click="view.opShow=2">Add Component filter operation</div>
-        </div>
+
 
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading panel-heading-custom">
                 <h3 class="panel-title">Add Operations</h3>
             </div>
             <div class="panel-body">

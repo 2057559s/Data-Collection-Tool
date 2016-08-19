@@ -1,12 +1,12 @@
 <div class="panel panel-default newthing">
     <div class="panel-heading">
-        <button type="button" class="btn btn-danger btn-sm pull-right" ng-click="deleteOperation()">&times;</button>
         <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=2">&plus;</button>
         <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=1">&minus;</button>
+        <button type="button" class="btn btn-danger btn-sm pull-right" ng-click="deleteOperation()">&times;</button>
         <h4 class="panel-title">
-            Code Operation: {{ operation.name }}
-            Change: <select ng-model="operation.type"><option selected="selected">map</option><option>filter</option></select>
-            Type: {{ operation.type }}
+            Code Operation {{ operation.name }}
+            <select ng-model="operation.type"><option selected="selected">map</option><option>filter</option></select>
+            <!--Type: {{ operation.type }}-->
         </h4>
     </div>
     <div ng-if="view.min === 2" class="panel-body">
