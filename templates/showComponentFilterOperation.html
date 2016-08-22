@@ -1,8 +1,6 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=2">&plus;</button>
-        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=1">&minus;</button>
-        <button type="button" class="btn btn-danger btn-sm pull-right" ng-click="deleteOperation()">&times;</button>
+    <div class="panel-heading" ng-click="togglePanel()">
+        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="deleteOperation()">&#10006;</button>
         <h3 class="panel-title">Filter Operation
             <select ng-model="operation.filter.form.component">
                 <option ng-repeat="component in components" ng-attr>{{ component }}</option>
@@ -10,19 +8,20 @@
             <label>{{ operation.filter.componentType }}</label>
         </h3>
     </div>
-    <div ng-if="view.min === 2" class="panel-body">
-        <div ng-if="operation.filter.componentType==='string'">
-            <select class="form-control" ng-model="operation.filter.form.text" multiple>
-                <option ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
-            </select>
-        </div>
-        <div ng-if="operation.filter.componentType==='number'">
-            <input type="number" ng-model="operation.filter.form.start" />
-            &lt;= {{ form.component }} &lt;=
-            <input type="number" ng-model="operation.filter.form.end" />
+    <div id="collapse{{ $index }}" class="panel-collapse collapse" ng-class="{ in: expanded }">
+        <div class="panel-body">
+            <div ng-if="operation.filter.componentType==='string'">
+                <select class="form-control" ng-model="operation.filter.form.text" multiple>
+                    <option ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
+                </select>
+            </div>
+            <div ng-if="operation.filter.componentType==='number'">
+                <input type="number" ng-model="operation.filter.form.start" />
+                &lt;= {{ form.component }} &lt;=
+                <input type="number" ng-model="operation.filter.form.end" />
+            </div>
         </div>
     </div>
-
 </div>
 
 

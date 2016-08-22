@@ -40,6 +40,7 @@
                             if (uniques.indexOf(d)==-1) uniques.push(d); return uniques;
                         }, []);
                     $scope.componentValues = components;
+                    $scope.form.text = JSON.parse(JSON.stringify(components));
                 });
 
 

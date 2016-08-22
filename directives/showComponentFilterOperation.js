@@ -58,6 +58,11 @@
                     }
                 }
 
+                $scope.togglePanel = togglePanel;
+                function togglePanel() {
+                    $scope.expanded = !$scope.expanded;
+                }
+
             }
         }
     });

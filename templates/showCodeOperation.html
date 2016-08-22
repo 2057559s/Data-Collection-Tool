@@ -1,22 +1,29 @@
-<div class="panel panel-default newthing">
-    <div class="panel-heading">
-        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=2">&plus;</button>
-        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="view.min=1">&minus;</button>
-        <button type="button" class="btn btn-danger btn-sm pull-right" ng-click="deleteOperation()">&times;</button>
+<div class="panel panel-default">
+    <div class="panel-heading" ng-click="togglePanel()">
+        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="deleteOperation()">&#10006;</button>
         <h4 class="panel-title">
             Code Operation {{ operation.name }}
             <select ng-model="operation.type"><option selected="selected">map</option><option>filter</option></select>
             <!--Type: {{ operation.type }}-->
         </h4>
     </div>
-    <div ng-if="view.min === 2" class="panel-body">
-        <h4>{{ operation.f }}</h4>
-        <div >{{ operation.code }}<button class="btn btn-default pull-right" ng-click="view.edit=1">Edit</button></div>
-        <div ng-if="view.edit===1">
-            <textarea ng-model="editor.code"></textarea>
-            <button type="button" class="btn btn-default" ng-click="runCode()">Submit</button>
-        </div>
+    <div id="collapse{{ $index }}" class="panel-collapse collapse" ng-class="{ in: expanded }">
+        <div ng-click="view.edit=1" class="panel-body">
+            <h4>{{ operation.f }}</h4>
+            <div ng-if="view.edit!==1">
+                <div>{{ operation.code }}</div>
+            </div>
+            <div ng-if="view.edit===1">
+                <textarea ng-model="editor.code"></textarea>
+                <button type="button" class="btn btn-default btn-sm" ng-click="runCode()">Submit Edit</button>
+            </div>
 
-        <div>{{ operation.error }}</div>
+            <div>{{ operation.error }}</div>
+        </div>
     </div>
 </div>
+
+<style type="text/css">
+    textarea { border: none;
+                width: 200px;}
+</style>
