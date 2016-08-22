@@ -1,9 +1,11 @@
 <div class="panel panel-default">
     <div class="panel-heading" ng-click="togglePanel()">
-        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="deleteOperation()">&#10006;</button>
+        <span ng-if="!expanded" class="glyphicon glyphicon-chevron-down pull-right" style="color: lightgrey;"></span>
+        <span ng-if="expanded" class="glyphicon glyphicon-chevron-up pull-right" style="color: lightgrey;"></span>
         <h4 class="panel-title">
             Code Operation {{ operation.name }}
             <select ng-model="operation.type"><option selected="selected">map</option><option>filter</option></select>
+            <span class="glyphicon glyphicon-remove" ng-click="deleteOperation()" style="color: lightgrey;"></span>
             <!--Type: {{ operation.type }}-->
         </h4>
     </div>

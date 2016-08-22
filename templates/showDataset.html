@@ -1,7 +1,9 @@
 <div class="panel panel-default">
     <div class="panel-heading" ng-click="togglePanel()">
         <h3 class="panel-title">
-            {{ dataType }}[{{ numberOfObjects }}] <span ng-repeat="component in components">({{component.key}} : {{component.type}}) </span>
+            {{ dataType }}[{{ numberOfObjects }}] <span ng-if="!expanded" ng-repeat="component in components">({{component.key}} : {{component.type}}) </span>
+            <span ng-if="!expanded" class="glyphicon glyphicon-chevron-down pull-right" style="color: lightgrey;"></span>
+            <span ng-if="expanded" class="glyphicon glyphicon-chevron-up pull-right" style="color: lightgrey;"></span>
         </h3>
     </div>
     <div id="collapse{{ $index }}" class="panel-collapse collapse" ng-class="{ in: expanded }">
@@ -9,10 +11,13 @@
             <table class="table">
                 <tr>
                     <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
+                    <th>Formatted Timestamp</th>
+
                 </tr>
                 <tr ng-repeat="item in dataset.slice(0, getNum()) track by $index">
                     <td ng-repeat="component in components">{{ item[component.key] }}</td>
                     <td ng-if="dataType==='string'">{{ item }}</td>
+                    <td ng-repeat="component in components" ng-if="component.key==='timestamp'">{{ getDate(item[component.key]) }}</td>
                 </tr>
             </table>
 
@@ -21,7 +26,3 @@
         </div>
     </div>
 </div>
-
-
-
-

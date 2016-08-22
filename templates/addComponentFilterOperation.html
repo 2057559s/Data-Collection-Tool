@@ -1,4 +1,4 @@
-<div class="container">
+<div class="filter" style="padding-bottom: 70px;">
     Select Component:
         <select ng-model="form.component">
             <option ng-repeat="component in components">{{ component }}</option>
@@ -12,7 +12,8 @@
         </select>
     </div>
     <div ng-if="TYPE=='number'">
-        <input type="number" ng-model="form.start" /> &lt;= {{ form.component }} &lt;= <input type="number" ng-model="form.end" />
+        <div>Select Value Range for {{ form.component }}</div>
+        <input class="form-control" style="width: 150px;" placeholder="Start Value" type="number" ng-model="form.start"/><input class="form-control" style="width: 150px;" placeholder="End Value" type="number" ng-model="form.end" />
     </div>
     <button class="btn btn-default btn-sm" ng-if="!!TYPE" ng-click="add()">Add operation</button>
 </div>

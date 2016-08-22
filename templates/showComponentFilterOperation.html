@@ -1,6 +1,8 @@
 <div class="panel panel-default">
     <div class="panel-heading" ng-click="togglePanel()">
-        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="deleteOperation()">&#10006;</button>
+        <span class="glyphicon glyphicon-remove" ng-click="deleteOperation()" style="color: lightgrey;"></span>
+        <span ng-if="!expanded" class="glyphicon glyphicon-chevron-down pull-right" style="color: lightgrey;"></span>
+        <span ng-if="expanded" class="glyphicon glyphicon-chevron-up pull-right" style="color: lightgrey;"></span>
         <h3 class="panel-title">Filter Operation
             <select ng-model="operation.filter.form.component">
                 <option ng-repeat="component in components" ng-attr>{{ component }}</option>
