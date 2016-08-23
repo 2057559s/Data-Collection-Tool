@@ -12,7 +12,6 @@
             <table class="table table-bordered">
                 <tr>
                     <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
-
                 </tr>
                 <tr ng-repeat="item in dataset.slice(0, getNum()) track by $index">
                     <td ng-repeat="component in components">{{ item[component.key] }}</td>

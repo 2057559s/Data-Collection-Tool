@@ -6,6 +6,14 @@
 
     <label>{{ TYPE }}</label>
 
+    <div ng-if="TYPE=='boolean'">
+        <select ng-model="form.bool">
+            <option>true</option>
+            {{ form.component }}
+            <option>false</option>
+        </select>
+    </div>
+
     <div ng-if="TYPE=='string'">
         <select class="form-control" ng-model="form.text" multiple>
             <option ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
