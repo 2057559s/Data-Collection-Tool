@@ -47,6 +47,16 @@
                     $scope.numberToSHow += 2;
                 }
                 
+                $scope.showAll = showAll;
+                function showAll(){
+                    $scope.numberToSHow = $scope.dataset.length;
+                }
+                
+                $scope.hideAll = hideAll;
+                function hideAll(){
+                    $scope.numberToSHow = 2;
+                }
+                
                 $scope.getNum = getNum;
                 function getNum(){
                     return $scope.numberToSHow;

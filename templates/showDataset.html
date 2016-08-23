@@ -8,11 +8,10 @@
         </h3>
     </div>
     <div id="collapse{{ $index }}" class="panel-collapse collapse" ng-class="{ in: expanded }">
-        <it class="panel-body">
-            <table class="table">
+        <div class="panel-body">
+            <table class="table table-bordered">
                 <tr>
                     <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
-                    <th>Formatted Timestamp</th>
 
                 </tr>
                 <tr ng-repeat="item in dataset.slice(0, getNum()) track by $index">
@@ -23,14 +22,11 @@
             </table>
 
             <button class="btn btn-default" ng-click="expand()">+2</button>
+            <button class="btn btn-default" ng-click="showAll()">Show All</button>
+            <button class="btn btn-default" ng-click="hideAll()">Hide All</button>
+
             <preview-data></preview-data>
         </div>
     </div>
 </div>
 
-
-<td ng-repeat="component in components">{{ item[component.key] }}</td>
-
-getKeyValue(item[component.key]){
-    
-}
