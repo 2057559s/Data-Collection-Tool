@@ -80,6 +80,7 @@
                                 return form.start <= d[form.component] &&
                                     d[form.component] <= form.end;
                             };
+                        
                     }
                 }
             },

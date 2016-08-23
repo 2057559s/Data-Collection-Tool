@@ -1,13 +1,14 @@
 <div class="panel panel-default">
     <div class="panel-heading" ng-click="togglePanel()">
         <h3 class="panel-title">
-            {{ dataType }}[{{ numberOfObjects }}] <span ng-if="!expanded" ng-repeat="component in components">({{component.key}} : {{component.type}}) </span>
-            <span ng-if="!expanded" class="glyphicon glyphicon-chevron-down pull-right" style="color: lightgrey;"></span>
-            <span ng-if="expanded" class="glyphicon glyphicon-chevron-up pull-right" style="color: lightgrey;"></span>
+            <span ng-if="!expanded" class="glyphicon glyphicon-chevron-down pull-left" style="color: lightgrey;"></span>
+            <span ng-if="expanded" class="glyphicon glyphicon-chevron-up pull-left" style="color: lightgrey;"></span>
+            {{ dataType }}[{{ numberOfObjects }}]
+            <span ng-if="!expanded" ng-repeat="component in components">{{component.key}} : {{component.type}}, </span>
         </h3>
     </div>
     <div id="collapse{{ $index }}" class="panel-collapse collapse" ng-class="{ in: expanded }">
-        <div class="panel-body">
+        <it class="panel-body">
             <table class="table">
                 <tr>
                     <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
@@ -16,8 +17,8 @@
                 </tr>
                 <tr ng-repeat="item in dataset.slice(0, getNum()) track by $index">
                     <td ng-repeat="component in components">{{ item[component.key] }}</td>
-                    <td ng-if="dataType==='string'">{{ item }}</td>
                     <td ng-repeat="component in components" ng-if="component.key==='timestamp'">{{ getDate(item[component.key]) }}</td>
+                    <td ng-if="dataType==='string'">{{ item }}</td>
                 </tr>
             </table>
 
@@ -26,3 +27,10 @@
         </div>
     </div>
 </div>
+
+
+<td ng-repeat="component in components">{{ item[component.key] }}</td>
+
+getKeyValue(item[component.key]){
+    
+}

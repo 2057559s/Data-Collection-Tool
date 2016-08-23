@@ -16,6 +16,12 @@
                     $scope.dataHref = "data:text/plain," + JSON.stringify($scope.datasets[$scope.datasets.length-1]);
                     $scope.success = true;
                 }
+
+                $scope.togglePanel = togglePanel;
+
+                function togglePanel() {
+                    $scope.expanded = !$scope.expanded;
+                }
             }
         };
     })

@@ -62,10 +62,11 @@
                 $scope.getDate = getDate;
                 function getDate(x){
                     $scope.date = new Date(Math.round(Number(x)));
-                    $scope.formattedDate = $scope.date.getUTCDate() + '-' + ($scope.date.getUTCMonth() + 1)+ '-' + $scope.date.getUTCFullYear() +
-                                          '-' + $scope.date.getUTCSeconds() + '-' + $scope.date.getUTCMinutes() + '-' + $scope.date.getUTCHours();
+                    // $scope.formattedDate = $scope.date.getUTCFullYear() + '-' + ($scope.date.getUTCMonth() + 1)+ '-' + $scope.date.getUTCDay() +
+                    //                       '-' + $scope.date.getUTCSeconds() + '-' + $scope.date.getUTCMinutes() + '-' + $scope.date.getUTCHours();
 
-                    return $scope.formattedDate;
+                    $scope.isoDate = $scope.date.toISOString();
+                    return $scope.isoDate;
 
                 }
             }

@@ -12,8 +12,8 @@
         </select>
     </div>
     <div ng-if="TYPE=='number'">
-        <div>Select Value Range for {{ form.component }}</div>
-        <input class="form-control" style="width: 150px;" placeholder="Start Value" type="number" ng-model="form.start"/><input class="form-control" style="width: 150px;" placeholder="End Value" type="number" ng-model="form.end" />
+        <input placeholder="Start" type="number" ng-model="form.start" /> << {{ form.component }} <<
+        <input placeholder="End" type="number" ng-model="form.end" />
     </div>
     <button class="btn btn-default btn-sm" ng-if="!!TYPE" ng-click="add()">Add operation</button>
 </div>

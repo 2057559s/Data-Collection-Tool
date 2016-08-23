@@ -13,7 +13,17 @@
                     var parsedInput = JSON.parse($scope.textIN);
                     ndms.setInitialDataSet(parsedInput);
                 };
+
+                $scope.togglePanel = togglePanel;
+
+                function togglePanel() {
+                    $scope.expanded = !$scope.expanded;
+                }
             }
+
+
+
+
         };
     });
 })();

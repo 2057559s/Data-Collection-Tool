@@ -1,11 +1,11 @@
 <div class="panel panel-default">
     <div class="panel-heading" ng-click="togglePanel()">
-        <span ng-if="!expanded" class="glyphicon glyphicon-chevron-down pull-right" style="color: lightgrey;"></span>
-        <span ng-if="expanded" class="glyphicon glyphicon-chevron-up pull-right" style="color: lightgrey;"></span>
         <h4 class="panel-title">
+            <span ng-if="!expanded" class="glyphicon glyphicon-chevron-down pull-left" style="color: lightgrey;"></span>
+            <span ng-if="expanded" class="glyphicon glyphicon-chevron-up pull-left" style="color: lightgrey;"></span>
+            <span class="glyphicon glyphicon-remove pull-right" ng-click="deleteOperation()" style="color: lightgrey;"></span>
             Code Operation {{ operation.name }}
             <select ng-model="operation.type"><option selected="selected">map</option><option>filter</option></select>
-            <span class="glyphicon glyphicon-remove" ng-click="deleteOperation()" style="color: lightgrey;"></span>
             <!--Type: {{ operation.type }}-->
         </h4>
     </div>
@@ -16,7 +16,7 @@
                 <div>{{ operation.code }}</div>
             </div>
             <div ng-if="view.edit===1">
-                <textarea ng-model="editor.code"></textarea>
+                <textarea autofocus ng-model="editor.code"></textarea>
                 <button type="button" class="btn btn-default btn-sm" ng-click="runCode()">Submit Edit</button>
             </div>
 
