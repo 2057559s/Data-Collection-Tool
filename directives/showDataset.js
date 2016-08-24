@@ -30,6 +30,12 @@
                         }
                     }
 
+                    //Loops through dataset components and changes timestamp value using formatTimeStamp function
+                    for(item in $scope.dataset){
+                        $scope.dataset[item]['timestamp'] = formatTimeStamp($scope.dataset[item]['timestamp']);
+                    }
+
+
                     $scope.numberOfObjects = $scope.dataset.length;
 
                     function evaluateComponentType(key) {
@@ -83,7 +89,7 @@
                         return n<10?'0' + n:n; 
                     };
                     
-                    return year + "-" + pad(month) + "-" + pad(day) + " " +
+                    return year + "/" + pad(month) + "/" + pad(day) + " " +
                         pad(hours) +  ":" + pad(minutes) + ":" + pad(seconds);
                 
 
