@@ -6,14 +6,6 @@
 
     <label>{{ TYPE }}</label>
 
-    <div ng-if="TYPE=='boolean'">
-        <select ng-model="form.bool">
-            <option>true</option>
-            {{ form.component }}
-            <option>false</option>
-        </select>
-    </div>
-
     <div ng-if="TYPE=='string'">
         <select class="form-control" ng-model="form.text" multiple>
             <option ng-repeat="comp in componentValues track by $index">{{ comp }}</option>
@@ -22,6 +14,16 @@
     <div ng-if="TYPE=='number'">
         <input placeholder="Start" type="number" ng-model="form.start" /> << {{ form.component }} <<
         <input placeholder="End" type="number" ng-model="form.end" />
+    </div>
+    <div ng-if="TYPE=='boolean'">
+        <select ng-model="form.bool">
+            <option>true</option>
+            {{ form.component }}
+            <option>false</option>
+        </select>
+    </div>
+    <div ng-if="TYPE=='object'">
+        Return object in Add Code Operation
     </div>
     <button class="btn btn-default btn-sm" ng-if="!!TYPE" ng-click="add()">Add operation</button>
 </div>

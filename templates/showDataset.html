@@ -12,10 +12,11 @@
             <table class="table table-bordered">
                 <tr>
                     <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
+                    <th>Date and Time</th>
                 </tr>
                 <tr ng-repeat="item in dataset.slice(0, getNum()) track by $index">
                     <td ng-repeat="component in components">{{ item[component.key] }}</td>
-                    <td ng-repeat="component in components" ng-if="component.key==='timestamp'">{{ getDate(item[component.key]) }}</td>
+                    <td ng-repeat="component in components" ng-if="component.key==='timestamp'">{{ formatTimeStamp(item[component.key]) }}</td>
                     <td ng-if="dataType==='string'">{{ item }}</td>
                 </tr>
             </table>

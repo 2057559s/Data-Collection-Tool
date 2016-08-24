@@ -55,7 +55,12 @@
                                 return form.start <= d[form.component] &&
                                     d[form.component] <= form.end;
                             };
-                        
+                        case "boolean":
+                            return function(d){
+                                return form.bool.toString() === d[form.component].toString();
+                            };
+
+
                     }
                 }
 

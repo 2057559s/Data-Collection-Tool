@@ -23,6 +23,12 @@
                 &lt;= {{ form.component }} &lt;=
                 <input type="number" ng-model="operation.filter.form.end" />
             </div>
+            <div ng-if="operation.filter.componentType==='boolean'">
+                <select ng-model="operation.filter.form.bool">
+                    <option>true</option>
+                    <option>false</option>
+                </select>
+            </div>
         </div>
     </div>
 </div>

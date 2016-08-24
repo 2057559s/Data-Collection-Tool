@@ -69,14 +69,23 @@
                     $scope.expanded = !$scope.expanded;
                 }
 
-                $scope.getDate = getDate;
-                function getDate(x){
-                    $scope.date = new Date(Math.round(Number(x)));
-                    // $scope.formattedDate = $scope.date.getUTCFullYear() + '-' + ($scope.date.getUTCMonth() + 1)+ '-' + $scope.date.getUTCDay() +
-                    //                       '-' + $scope.date.getUTCSeconds() + '-' + $scope.date.getUTCMinutes() + '-' + $scope.date.getUTCHours();
 
-                    $scope.isoDate = $scope.date.toISOString();
-                    return $scope.isoDate;
+                $scope.formatTimeStamp = formatTimeStamp;
+                function formatTimeStamp(timestamp) {
+                    var d = new Date(timestamp);
+                    var year = d.getFullYear();
+                    var month = d.getMonth()+1;
+                    var day = d.getDate();
+                    var hours = d.getHours();
+                    var minutes = d.getMinutes();
+                    var seconds = d.getSeconds();
+                    var pad = function(n) { 
+                        return n<10?'0' + n:n; 
+                    };
+                    
+                    return year + "-" + pad(month) + "-" + pad(day) + " " +
+                        pad(hours) +  ":" + pad(minutes) + ":" + pad(seconds);
+                
 
                 }
             }
