@@ -11,10 +11,13 @@
         <div class="panel-body">
             <table class="table table-bordered">
                 <tr>
-                    <th ng-repeat="component in components">{{component.key}} :{{component.type}}</th>
+                    <th ng-repeat="component in components">
+                        <span class="glyphicon glyphicon-remove pull-left" ng-click="deleteComponent(component);" style="color: lightgrey;"></span>
+                        {{component.key}} :{{component.type}}
+                    </th>
                 </tr>
                 <tr ng-repeat="item in dataset.slice(0, getNum()) track by $index">
-                    <td ng-repeat="component in components">{{ item[component.key] }}</td>
+                    <td ng-repeat="component in components">{{ formatValue( item[component.key], component.key) }}</td>
                     <td ng-if="dataType==='string'">{{ item }}</td>
                 </tr>
             </table>

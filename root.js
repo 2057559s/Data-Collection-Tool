@@ -22,11 +22,12 @@ app.service('ndms', function() {
             var i = operations.indexOf(operation);
             operations.splice(i, 1);
         },
+        
 
         setInitialDataSet: function(dataset) {
             datasets.splice(0);
+            operations.splice(0);
             datasets.push(dataset);
-            console.log(datasets);
         },
         addDataOperation: function(operation) {
             operations.push(operation);
@@ -68,7 +69,7 @@ app.controller("myCtrl", function($scope, ndms){
         try {
             ndms.rerunOperations();
         } catch (e) {
-            console.log("ERRRRRRRO");
+            console.log("ERROR");
             console.log(e);
         }
     }, true);
