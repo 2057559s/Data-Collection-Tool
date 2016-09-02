@@ -70,16 +70,50 @@
                         return f;
                     }
 
-                    // console.log("Clicked on: " + component.key);
-                    // for(comp in $scope.components) {
-                    //     if (component.key === $scope.components[comp].key) {
-                    //         var i = $scope.components.indexOf(component);
-                    //         $scope.components.splice(i, 1);
-                    //     }
-                    // }
-                }
+                };
 
-                
+                $scope.extractObject = function(component){
+                    ndms.addDataOperation({
+                        operationType: "generic-code",
+                        name: "Extract " + component.key,
+                        type: "map",
+                        createF: function() {
+                            return compileCode(this.code);
+                        },
+                        code: "var d2 = Object.assign({}, d); for(key in d." + component.key + ") { d2[\"" + component.key + "."+ "\" + key] = d." + component.key +"[key]; } delete d2." +
+                        component.key + "; return d2;",
+                    });
+
+                    function compileCode(code) {
+                        var f;
+                        try {
+                            f = eval("(function(d, i) {" + code + "})");
+                        } catch (error) {
+                            $scope.error = error;
+                        }
+                        return f;
+                    }
+
+
+                };
+
+
+                // var d2 = Object.assign({}, d);
+                // for(key in d.device) {
+                //     d2["device." + key] = d.device[key];
+                // }
+                // delete d2.device;
+                //
+                // return d2;
+
+                // var d2 = Object.assign({}, d);
+                // for(key in d.device) {
+                //     d2["device"] = d.device[key];
+                // } delete d2.device;
+                // return d2;
+
+
+
                 //used to get the number of objects to show within the dataset
                 $scope.numberToSHow = 2;
                 $scope.expand = expand;
